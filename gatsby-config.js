@@ -20,6 +20,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
+    "gatsby-plugin-sass",
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {

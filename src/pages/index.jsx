@@ -2,30 +2,58 @@ import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../layout";
-import PostListing from "../components/PostListing/PostListing";
+// import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
+// import '../styles/main.scss';
+import './Home.scss';
 
-const indexStyle = {
-  display:'flex',
-  flexDirection: 'column',
-  justifyContent:'center',
-  alignItems:'center',
-  width:'100%',
-  height:'100%',
-  backgroundColor:'pink'
-}
 
 class Index extends React.Component {
   render() {
     const postEdges = this.props.data.allMarkdownRemark.edges;
     return (
       <Layout>
-        <div style={indexStyle} className="index-container">
+        <div class="home">
           <Helmet title={config.siteTitle} />
           <SEO />
-          <h1 style={{color:"black", zIndex:'100', fontSize:'6rem'}}>Data ✕ Design</h1>
-          <h2 id="background-text" style={{position:'fixed', fontSize:'20rem', color:'white'}}>2020</h2>
+          
+          <header className="header">
+          <h1 className="header__title">Data <span>✕</span> Design</h1>
+          <p className="coming-soon">March 2020 · NYC</p>
+          <h2 className="header__bg-text">2020</h2>
+          </header>
+
+         <main className="content">
+            <h2 className="content__header">Data Through Design is an annual exhibition celebrating open data and critical making in New York City.</h2>
+
+            <div className="content__cards">
+                <div className="card card-1">
+                  <h2 className="card__title">data</h2>
+                  <p className="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo ducimus quam odit porro tempora nihil. Ullam, sunt inventore nulla illum dolores velit rerum voluptas maxime magni totam quas, recusandae harum.</p>
+                </div>
+
+                <div className="card card-2">
+                  <h2 className="card__title">design</h2>
+                  <p className="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo ducimus quam odit porro tempora nihil. Ullam, sunt inventore nulla illum dolores velit rerum voluptas maxime magni totam quas, recusandae harum.</p>
+                </div>
+
+                <div className="card card-3">
+                  <h2 className="card__title">engagement</h2>
+                  <p className="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo ducimus quam odit porro tempora nihil. Ullam, sunt inventore nulla illum dolores velit rerum voluptas maxime magni totam quas, recusandae harum.</p>
+                </div>
+            </div>
+
+            <div className="sponsors">
+              <h2 className="sponsors__title">Become a Sponsor</h2>
+              <div className="sponsors__package-1">1</div>
+              <div className="sponsors__package-2">2</div>
+              <div className="sponsors__package-3">3</div>
+              <div className="sponsors__package-4">4</div>
+              <div className="sponsors__package-5">5</div>
+            </div>
+          </main>
+
           {/* <PostListing postEdges={postEdges} /> */}
         </div>
       </Layout>
